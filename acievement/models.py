@@ -5,7 +5,7 @@ from school.models import School
 
 
 class GoldenCertificate(models.Model):
-    student_fullname = models.OneToOneField(Student, max_length=50, on_delete=models.SET_NULL, verbose_name='имя студента')
+    student_fullname = models.OneToOneField(Student, max_length=50, on_delete=models.SET_NULL, verbose_name='имя студента', null=True)
     school_fullname = models.ForeignKey(School, max_length=255, on_delete=models.SET_NULL, null=True, verbose_name='название школы')
     points = models.IntegerField(verbose_name='оценки')
     year = models.IntegerField(verbose_name='год')
