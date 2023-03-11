@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     # my apps
     'school',
     'online_queue',
+    'personal',
 ]
 
 MIDDLEWARE = [

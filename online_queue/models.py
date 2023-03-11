@@ -1,9 +1,15 @@
 from django.db import models
 from django.utils import timezone
 
+from school.models import School
+
 
 class StudentPhoto(models.Model):
     photo = models.ImageField(upload_to='student/', verbose_name='фото')
+
+    class Meta:
+        verbose_name = 'Фотография студента'
+        verbose_name_plural = 'Фотографии студента'
 
 
 class Student(models.Model):
@@ -16,11 +22,18 @@ class Student(models.Model):
     father = models.CharField(max_length=255, verbose_name='отец')
     mother = models.CharField(max_length=255, verbose_name='мать')
 
+    class Meta:
+        verbose_name = 'Студент'
+        verbose_name_plural = 'Студенты'
+
 
 class OnlineQueue(models.Model):
     school = models.ForeignKey(School, on_delete=models.CASCADE, verbose_name='школа')
     student = models.ForeignKey(Student, on_delete=models.CASCADE, verbose_name='студент')
     sms = models.TextField(verbose_name='смс')
+
+    class Meta:
+        verbose_name = 'Онлайн очередь'
 
 
 class NewPhoto(models.Model):
