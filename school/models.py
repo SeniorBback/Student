@@ -42,5 +42,3 @@ class Olympiad(models.Model):
     school_fullname = models.ForeignKey(School, max_length=255, on_delete=models.SET_NULL, null=True)
     points = models.IntegerField()
     year = models.IntegerField()
-
-# Create your models here.
