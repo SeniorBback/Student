@@ -4,7 +4,7 @@ from django.db import models
 
 
 class Region(models.Model):
-    name = models.CharField(max_length=255)
+    name = models.CharField(max_length=255, verbose_name='имя')
 
     class Meta:
         verbose_name = 'Область'
@@ -14,7 +14,7 @@ class Region(models.Model):
 
 
 class City(models.Model):
-    name = models.CharField(max_length=255)
+    name = models.CharField(max_length=255, verbose_name='город')
 
     class Meta:
         verbose_name = 'Город'
@@ -25,7 +25,7 @@ class City(models.Model):
 
 
 class District(models.Model):
-    name = models.CharField(max_length=255)
+    name = models.CharField(max_length=255, verbose_name='район')
 
     class Meta:
         verbose_name = 'Район'
@@ -36,10 +36,10 @@ class District(models.Model):
 
 
 class School(models.Model):
-    fullname = models.CharField(max_length=255)
-    region = models.ForeignKey(Region, on_delete=models.SET_NULL, null=True)
-    city = models.ForeignKey(City, on_delete=models.SET_NULL, null=True)
-    district = models.ForeignKey(District, on_delete=models.SET_NULL, null=True)
+    fullname = models.CharField(max_length=255, verbose_name='полное имя')
+    region = models.ForeignKey(Region, on_delete=models.SET_NULL, null=True, verbose_name='регион')
+    city = models.ForeignKey(City, on_delete=models.SET_NULL, null=True, verbose_name='город')
+    district = models.ForeignKey(District, on_delete=models.SET_NULL, null=True, verbose_name='район')
 
     class Meta:
         verbose_name = 'Школа'
