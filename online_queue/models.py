@@ -7,7 +7,7 @@ from school.models import School
 class Student(models.Model):
     fullname = models.CharField(max_length=255, verbose_name='фио')
     pin = models.CharField(max_length=255, verbose_name='пин')
-    birthdate = models.DateField(verbose_name='дата_рождения')
+    birthdate = models.DateField(verbose_name='дата рождения')
     school = models.ForeignKey(School, on_delete=models.SET_NULL, verbose_name='школа', null=True)
     grade = models.IntegerField(verbose_name='класс')
     father = models.CharField(max_length=255, verbose_name='отец')
