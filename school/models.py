@@ -43,6 +43,7 @@ class School(models.Model):
     district = models.ForeignKey(District, on_delete=models.SET_NULL, null=True, verbose_name='район')
     longitude = models.IntegerField(verbose_name='долгота', null=True)
     latitude = models.IntegerField(verbose_name='широта',null=True)
+    spots = models.IntegerField(verbose_name='свободные места', null=True)
 
     class Meta:
         verbose_name = 'Школа'

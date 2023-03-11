@@ -28,7 +28,7 @@ class StudentPhoto(models.Model):
 
 
 class OnlineQueue(models.Model):
-    school = models.ForeignKey(School, on_delete=models.CASCADE, verbose_name='школа')
+    school = models.ForeignKey(School, on_delete=models.CASCADE, verbose_name='школа', related_name='queue')
     student = models.ForeignKey(Student, on_delete=models.CASCADE, verbose_name='студент')
     sms = models.TextField(verbose_name='смс')
 
