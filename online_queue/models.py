@@ -16,8 +16,8 @@ class Student(models.Model):
     fullname = models.CharField(max_length=255, verbose_name='фио')
     pin = models.CharField(max_length=255, verbose_name='пин')
     birthdate = models.DateField(verbose_name='дата_рождения')
-    photo = models.ForeignKey(StudentPhoto, on_delete=models.SET_NULL, verbose_name='фото')
-    school = models.ForeignKey(School, on_delete=models.SET_NULL, verbose_name='школа')
+    photo = models.ForeignKey(StudentPhoto, on_delete=models.SET_NULL, verbose_name='фото', null=True)
+    school = models.ForeignKey(School, on_delete=models.SET_NULL, verbose_name='школа', null=True)
     grade = models.IntegerField(verbose_name='класс')
     father = models.CharField(max_length=255, verbose_name='отец')
     mother = models.CharField(max_length=255, verbose_name='мать')
@@ -47,7 +47,7 @@ class NewPhoto(models.Model):
 class New(models.Model):
     title = models.CharField(max_length=255, verbose_name='заголовок')
     text = models.CharField(max_length=255, verbose_name='текст')
-    photo = models.ForeignKey(NewPhoto, on_delete=models.SET_NULL, verbose_name='фото')
+    photo = models.ForeignKey(NewPhoto, on_delete=models.SET_NULL, verbose_name='фото', null=True)
     date = models.DateTimeField(verbose_name='дата', default=timezone.now)
 
     class Meta:
