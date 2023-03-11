@@ -24,17 +24,14 @@ class Profile(models.Model):
 
 
 class Achievement(models.Model):
-<<<<<<< HEAD
     type = models.ForeignKey(AchievementType, on_delete=models.SET_NULL, null=True)
     name = models.CharField(max_length=100)
     date = models.DateField()
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
-=======
     type = models.ForeignKey(AchievementType, on_delete=models.SET_NULL, verbose_name='Тип')
     name = models.CharField(max_length=100, verbose_name='Имя')
     date = models.DateField(verbose_name='Дата')
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE, verbose_name='Профиль')
->>>>>>> 3284d61 (verbose name for profile models from Amir)
 
     class Meta:
         verbose_name = 'Достижение'
@@ -42,15 +39,12 @@ class Achievement(models.Model):
 
 
 class HistoryOfStudy(models.Model):
-<<<<<<< HEAD
     date = models.DateField()
     school = models.ForeignKey(School, on_delete=models.SET_NULL, null=True)
     profile = models.ForeignKey(AchievementType, on_delete=models.SET_NULL, null=True)
-=======
     date = models.DateField(verbose_name='Дата')
     school = models.ForeignKey(School, on_delete=models.SET_NULL, verbose_name='Школа')
     profile = models.ForeignKey(AchievementType, on_delete=models.SET_NULL, verbose_name='Профиль')
->>>>>>> 3284d61 (verbose name for profile models from Amir)
 
     class Meta:
         verbose_name = 'История обучения'
