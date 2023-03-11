@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'django_filters',
     # my apps
     'school',
+    'online_queue',
 ]
 
 MIDDLEWARE = [
