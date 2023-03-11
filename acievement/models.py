@@ -5,10 +5,10 @@ from school.models import School
 
 
 class GoldenCertificate(models.Model):
-    student_fullname = models.OneToOneField(Student, max_length=50, on_delete=models.SET_NULL, null=True)
-    school_fullname = models.ForeignKey(School, max_length=255, on_delete=models.SET_NULL, null=True)
-    points = models.IntegerField()
-    year = models.IntegerField()
+    student_fullname = models.OneToOneField(Student, max_length=50, on_delete=models.SET_NULL, verbose_name='имя студента')
+    school_fullname = models.ForeignKey(School, max_length=255, on_delete=models.SET_NULL, null=True, verbose_name='название школы')
+    points = models.IntegerField(verbose_name='оценки')
+    year = models.IntegerField(verbose_name='год')
 
     class Meta:
         verbose_name = 'Золотой сертификат'
@@ -16,11 +16,12 @@ class GoldenCertificate(models.Model):
 
 
 class Olympiad(models.Model):
-    student = models.ForeignKey(Student, on_delete=models.CASCADE, max_length=255)
-    school = models.ForeignKey(School, max_length=255, on_delete=models.SET_NULL, null=True)
-    points = models.IntegerField()
-    year = models.IntegerField()
+    student = models.ForeignKey(Student, on_delete=models.CASCADE, max_length=255, verbose_name='студент')
+    school = models.ForeignKey(School, max_length=255, on_delete=models.SET_NULL, null=True, verbose_name='школа')
+    points = models.IntegerField(verbose_name='оценки')
+    year = models.IntegerField(verbose_name='год')
 
     class Meta:
         verbose_name = 'Олимпиада'
         verbose_name_plural = 'Олимпиады'
+
