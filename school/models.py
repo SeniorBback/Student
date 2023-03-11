@@ -40,9 +40,14 @@ class School(models.Model):
     region = models.ForeignKey(Region, on_delete=models.SET_NULL, null=True, verbose_name='регион')
     city = models.ForeignKey(City, on_delete=models.SET_NULL, null=True, verbose_name='город')
     district = models.ForeignKey(District, on_delete=models.SET_NULL, null=True, verbose_name='район')
+    longitude = models.IntegerField(verbose_name='долгота', null=True)
+    latitude = models.IntegerField(verbose_name='широта',null=True)
 
     class Meta:
         verbose_name = 'Школа'
         verbose_name_plural = 'Школы'
+    
+    def __str__(self):
+        return self.fullname
 
 
