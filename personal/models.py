@@ -47,3 +47,4 @@ class PersonalFile(models.Model):
 
     class Meta:
         verbose_name = 'Личное дело'
+        verbose_name_plural = 'Личное дело'

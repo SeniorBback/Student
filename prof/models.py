@@ -41,4 +41,5 @@ class HistoryOfStudy(models.Model):
 
     class Meta:
         verbose_name = 'История обучения'
+        verbose_name_plural = 'История обучения'
 

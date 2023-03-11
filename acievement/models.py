@@ -9,7 +9,7 @@ class GoldenCertificate(models.Model):
     school_fullname = models.ForeignKey(School, max_length=255, on_delete=models.SET_NULL, 
                                         null=True, verbose_name='название школы',
                                         related_name='golden')
-    points = models.IntegerField(verbose_name='оценки')
+    points = models.IntegerField(verbose_name='баллы')
     year = models.IntegerField(verbose_name='год')
 
     class Meta:
@@ -22,7 +22,7 @@ class Olympiad(models.Model):
     school = models.ForeignKey(School, max_length=255, on_delete=models.SET_NULL, 
                                null=True, verbose_name='школа',
                                related_name='olympiad')
-    points = models.IntegerField(verbose_name='оценки')
+    place = models.IntegerField(verbose_name='место', null=True)
     year = models.IntegerField(verbose_name='год')
 
     class Meta:

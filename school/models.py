@@ -8,6 +8,7 @@ class Region(models.Model):
 
     class Meta:
         verbose_name = 'Область'
+        verbose_name_plural = 'Область'
 
     def __str__(self):
         return f'{self.name}'

@@ -34,6 +34,7 @@ class OnlineQueue(models.Model):
 
     class Meta:
         verbose_name = 'Онлайн очередь'
+        verbose_name_plural = 'Онлайн очередь'
 
 
 class New(models.Model):
