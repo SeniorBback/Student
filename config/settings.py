@@ -51,6 +51,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'django_filters',
     # my apps
+    'school',
+    'online_queue',
 ]
 
 MIDDLEWARE = [
