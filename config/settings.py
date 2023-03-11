@@ -54,6 +54,8 @@ INSTALLED_APPS = [
     'school',
     'online_queue',
     'personal',
+    'prof',
+    'acievement',
 ]
 
 MIDDLEWARE = [

@@ -24,7 +24,7 @@ class Profile(models.Model):
 
 
 class Achievement(models.Model):
-    type = models.ForeignKey(AchievementType, on_delete=models.SET_NULL)
+    type = models.ForeignKey(AchievementType, on_delete=models.SET_NULL, null=True)
     name = models.CharField(max_length=100)
     date = models.DateField()
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
@@ -36,8 +36,8 @@ class Achievement(models.Model):
 
 class HistoryOfStudy(models.Model):
     date = models.DateField()
-    school = models.ForeignKey(School, on_delete=models.SET_NULL)
-    profile = models.ForeignKey(AchievementType, on_delete=models.SET_NULL)
+    school = models.ForeignKey(School, on_delete=models.SET_NULL, null=True)
+    profile = models.ForeignKey(AchievementType, on_delete=models.SET_NULL, null=True)
 
     class Meta:
         verbose_name = 'История обучения'
