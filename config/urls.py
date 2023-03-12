@@ -6,4 +6,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('online_queue/', include('online_queue.urls')),
     path('school/',include('school.urls')),
+    path('profile/', include('prof.urls')),
 ] 

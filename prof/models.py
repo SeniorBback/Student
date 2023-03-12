@@ -27,7 +27,7 @@ class Achievement(models.Model):
     type = models.ForeignKey(AchievementType, on_delete=models.SET_NULL, verbose_name='Тип', null=True)
     name = models.CharField(max_length=100, verbose_name='Имя')
     date = models.DateField(verbose_name='Дата')
-    profile = models.ForeignKey(Profile, on_delete=models.CASCADE, verbose_name='Профиль')
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE, verbose_name='Профиль', related_name='achievement')
 
     class Meta:
         verbose_name = 'Достижение'
@@ -37,7 +37,7 @@ class Achievement(models.Model):
 class HistoryOfStudy(models.Model):
     date = models.DateField(verbose_name='Дата')
     school = models.ForeignKey(School, on_delete=models.SET_NULL, verbose_name='Школа', null=True)
-    profile = models.ForeignKey(AchievementType, on_delete=models.SET_NULL, verbose_name='Профиль', null=True)
+    profile = models.ForeignKey(Profile, on_delete=models.SET_NULL, verbose_name='Профиль', null=True, related_name='history')
 
     class Meta:
         verbose_name = 'История обучения'
