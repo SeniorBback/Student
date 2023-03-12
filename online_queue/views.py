@@ -4,6 +4,8 @@ from online_queue.models import Student, StudentPhoto, OnlineQueue, NewPhoto, Ne
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.filters import SearchFilter, OrderingFilter
 from rest_framework.viewsets import ModelViewSet
+from rest_framework.response import Response
+from rest_framework import status, response
 
 
 class StudentView(ModelViewSet):
@@ -36,7 +38,18 @@ class NewPhotoView(ModelViewSet):
 
 class OnlineQueueView(ModelViewSet):
     serializer_class = OnlineQueueSerializer
-    lookup_field = ''
-
-    def get_queryset(self):
-        return self.queryset.get()
+    queryset = OnlineQueue.objects.all()
+    # lookup_field = 'on_pk'
+    #
+    # def create(self, request, *args, **kwargs):
+    #     serializer = self.get_serializer(data=request.data)
+    #     serializer.is_valid(raise_exception=True)
+    #     serializer.save(
+    #         school=kwargs.get('on_pk')
+    #     )
+    #     headers = self.get_success_headers(serializer.data)
+    #     return Response(serializer.data, status=status.HTTP_201_CREATED,
+    #                     headers=headers)
+    #
+    # def get_queryset(self):
+    #     return self.queryset.get()

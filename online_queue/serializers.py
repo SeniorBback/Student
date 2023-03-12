@@ -18,10 +18,7 @@ class OnlineQueueSerializer(serializers.ModelSerializer):
     class Meta:
         model = OnlineQueue
         fields = ['school', 'student', 'sms']
-        extra_kwargs = {
-            'school': {'read_only': True},
-            'student': {'read_only': True},
-        }
+
 
 
 class NewSerializer(serializers.ModelSerializer):

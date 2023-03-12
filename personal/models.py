@@ -19,6 +19,15 @@ QUARTER_CHOICES = (
 )
 
 
+class Grade(models.Model):
+    grade = models.IntegerField(verbose_name='класс')
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE, verbose_name='профиль', related_name='personalFile')
+
+    class Meta:
+        verbose_name = 'Класс'
+        verbose_name_plural = 'Классы'
+
+
 class Annual(models.Model):
     subject = models.ForeignKey(Subject, on_delete=models.CASCADE,verbose_name='субьект')
     quarter_1 = models.IntegerField(choices=QUARTER_CHOICES, verbose_name='четверть_1')
@@ -26,24 +35,18 @@ class Annual(models.Model):
     quarter_3 = models.IntegerField(choices=QUARTER_CHOICES, verbose_name='четверть_3')
     quarter_4 = models.IntegerField(choices=QUARTER_CHOICES, verbose_name='четверть_4')
     quarter_final = models.IntegerField(choices=QUARTER_CHOICES, verbose_name='итоговая')
+    grade = models.ForeignKey(Grade, on_delete=models.CASCADE, verbose_name='годовая', related_name='annual')
 
     class Meta:
         verbose_name = 'Годовая'
         verbose_name_plural = 'Годовые'
 
 
-class Grade(models.Model):
-    grade = models.IntegerField(verbose_name='оценка')
-    annual = models.ForeignKey(Annual, on_delete=models.CASCADE, verbose_name='годовая')
 
-    class Meta:
-        verbose_name = 'Класс'
-        verbose_name_plural = 'Классы'
 
 
 class PersonalFile(models.Model):
-    profile = models.ForeignKey(Profile, on_delete=models.CASCADE, verbose_name='профиль')
-    grade = models.ForeignKey(Grade, on_delete=models.CASCADE, verbose_name='оценка')
+    grade = models.ForeignKey(Grade, on_delete=models.CASCADE, verbose_name='оценка', related_name='grade_value')
 
     class Meta:
         verbose_name = 'Личное дело'
