@@ -1,4 +1,6 @@
 from django.contrib import admin
 
+from acievement.models import GoldenCertificate, Olympiad
 
-# Register your models here.
+admin.site.register(GoldenCertificate)
+admin.site.register(Olympiad)

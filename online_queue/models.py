@@ -28,12 +28,13 @@ class StudentPhoto(models.Model):
 
 
 class OnlineQueue(models.Model):
-    school = models.ForeignKey(School, on_delete=models.CASCADE, verbose_name='школа')
+    school = models.ForeignKey(School, on_delete=models.CASCADE, verbose_name='школа', related_name='queue')
     student = models.ForeignKey(Student, on_delete=models.CASCADE, verbose_name='студент')
     sms = models.TextField(verbose_name='смс')
 
     class Meta:
         verbose_name = 'Онлайн очередь'
+        verbose_name_plural = 'Онлайн очередь'
 
 
 class New(models.Model):
