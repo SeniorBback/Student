@@ -18,6 +18,9 @@ https://www.figma.com/file/BfdVuZQG4wj34zmBnddFUI/Hackathon-Project-(Copy)-(Copy
 ### Front
 https://school-project-ctlf.vercel.app/
 
+### dbdesigner
+https://app.dbdesigner.net/designer/schema/608751
+
 ### To start project:
 ```sh
 python manage.py makemigrations
