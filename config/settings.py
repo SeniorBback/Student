@@ -40,6 +40,14 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+MY_APPS = [
+    'apps.school.apps.SchoolConfig',
+    'apps.online_queue.apps.OnlineQueueConfig',
+    'apps.personal.apps.PersonalConfig',
+    'apps.prof.apps.ProfConfig',
+    'apps.acievement.apps.AcievementConfig',
+]
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -50,13 +58,7 @@ INSTALLED_APPS = [
     # third party
     'rest_framework',
     'django_filters',
-    # my apps
-    'school',
-    'online_queue',
-    'personal',
-    'prof',
-    'acievement',
-]
+] + MY_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
